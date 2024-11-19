@@ -30,7 +30,7 @@ const ProcessDocument = ({ file }: { file?: Document }) => {
       }
 
       toast.success("Document processed successfully");
-      router.refresh();
+      location.reload();
     } catch (error) {
       console.log(error);
     } finally {

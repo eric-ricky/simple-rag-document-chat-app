@@ -2,6 +2,8 @@
 
 A demonstration of building a RAG application that allows users to chat with their documents using AI. This project shows how to implement the key components of RAG: document processing, embedding generation, vector storage, and AI-powered chat.
 
+![Simple RAG](/Simple_RAG.mp4)
+
 ## How it Works
 
 1. **Document Processing**: Upload PDFs which are split into smaller chunks
@@ -37,13 +39,3 @@ Before you begin, ensure you have:
 ## Getting Started
 
 ### 1. Clone the repository
-
-```
-git clone https://github.com/eric-ricky/ai-document-chat.git
-```
-
-### 2. Install dependencies
-
-```
-npm install
-```

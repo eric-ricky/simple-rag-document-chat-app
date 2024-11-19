@@ -98,48 +98,46 @@ const DashboardPageContent = () => {
         </Button>
       </div>
 
-      <div className="hidde">
-        {stats.total_documents > 0 ? (
-          <div className="flex flex-col items-center justify-center gap-2 text-sm font-medium text-muted-foreground/80 text-center p-10">
-            <Image
-              src="/images/empty.png"
-              alt="empty folder"
-              width={200}
-              height={200}
-            />
+      {stats.total_documents === 0 ? (
+        <div className="flex flex-col items-center justify-center gap-2 text-sm font-medium text-muted-foreground/80 text-center p-10">
+          <Image
+            src="/images/empty.png"
+            alt="empty folder"
+            width={200}
+            height={200}
+          />
 
-            <p>Upload your first document to get started</p>
-          </div>
-        ) : (
-          <Card className="hidden">
-            <CardContent className="p-0">
-              <div className="divide-y divide-border rounded-md border">
-                {stats.recent_activity.map((activity, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between p-4"
-                  >
-                    <div className="flex items-center space-x-4">
-                      <FileText className="h-6 w-6 text-muted-foreground" />
-                      <div>
-                        <p className="text-sm font-medium leading-none">
-                          {activity.document.split("-").pop()}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          Uploaded on {activity.date}
-                        </p>
-                      </div>
+          <p>Upload your first document to get started</p>
+        </div>
+      ) : (
+        <Card>
+          <CardContent className="p-0">
+            <div className="divide-y divide-border rounded-md border">
+              {stats.recent_activity.map((activity, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between p-4"
+                >
+                  <div className="flex items-center space-x-4">
+                    <FileText className="h-6 w-6 text-muted-foreground" />
+                    <div>
+                      <p className="text-sm font-medium leading-none">
+                        {activity.document.split("-").pop()}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Uploaded on {activity.date}
+                      </p>
                     </div>
-                    <Button variant="ghost" asChild>
-                      <Link href={`/chat/${activity.document_id}`}>Chat</Link>
-                    </Button>
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        )}
-      </div>
+                  <Button variant="ghost" asChild>
+                    <Link href={`/chat/${activity.document_id}`}>Chat</Link>
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 };

@@ -7,7 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "gentypes": "npx supabase gen types --lang=typescript --project-id auncdolunoufhcgpcgas --schema public > database.types.ts"
+    "push": "drizzle-kit push:pg",
+    "pull": "drizzle-kit introspect:pg",
+    "generate": "drizzle-kit generate:pg",
+    "drop": "drizzle-kit drop",
+    "check": "drizzle-kit check:pg",
+    "up": "drizzle-kit up:pg",
+    "migrate": "node lib/supabase/migration.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.72",
@@ -54,6 +60,8 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.30.4",
     "embla-carousel-react": "^8.3.0",
     "emoji-picker-react": "^4.9.2",
     "input-otp": "^1.2.4",
@@ -100,6 +108,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "drizzle-kit": "^0.20.14",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "postcss": "^8",
